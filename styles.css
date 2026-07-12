@@ -124,6 +124,12 @@ h2 {
     z-index: 1000;
 }
 
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
 .navbar .logo {
     display: flex;
     align-items: center;
@@ -171,7 +177,38 @@ h2 {
     color: white;
 }
 
-/* --- Section 1: Hero Block Layout --- */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links.active {
+        display: flex; 
+    }
+
+    .nav-btn {
+        display: none;
+    }
+}
+
+/* --- Section 1: Hero Block Layout & Carousel Settings --- */
 .hero-section {
     background-color: var(--bg-khaki);
     overflow: hidden;
@@ -200,14 +237,30 @@ h2 {
 }
 .hero-actions { display: flex; align-items: center; gap: 30px; }
 
+/* REVISED: Carousel Frame Setup */
 .hero-image-wrapper {
     width: 100%;
     height: 550px;
     overflow: hidden;
     clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
     border-left: 8px solid var(--bg-cream);
+    position: relative;
 }
-.hero-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ADDED: Carousel Sliding Track */
+.carousel-track {
+    display: flex;
+    width: 300%; /* Calculated as 100% * 3 images */
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* REVISED: Scaled Image Rules */
+.carousel-track img { 
+    width: 33.3333%; /* Calculated as 100% / 3 images */
+    height: 100%; 
+    object-fit: cover; 
+}
 
 /* --- Section 2: Overlapping About Elements --- */
 .about-section { background-color: var(--bg-cream); }
@@ -219,13 +272,22 @@ h2 {
 }
 .about-images { position: relative; height: 480px; }
 .img-back { width: 70%; height: 400px; overflow: hidden; }
-.img-back img, .img-front img { width: 100%; height: 100%; object-fit: cover; }
-.img-front {
+.img-back img, .img-middle img, .img-front img { width: 100%; height: 100%; object-fit: cover; }
+.img-middle {
     position: absolute;
     width: 50%;
     height: 300px;
     right: 5%;
     bottom: 0;
+    border: 10px solid var(--bg-cream);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+.img-front {
+    position: absolute;
+    width: 25%;
+    height: 150px;
+    right: 0;
+    top: 25%;
     border: 10px solid var(--bg-cream);
     box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
@@ -387,20 +449,20 @@ h2 {
 .input-icon-group textarea { resize: none; }
 .form-submit { align-self: flex-start; border: none; cursor: pointer; }
 
-.map-card-container { min-height: 250px; }
-.map-mock {
-    width: 100%; height: 100%; min-height: 250px;
-    background-color: #eadecd;
-    border: 1px solid var(--border-color);
-    display: flex; align-items: center; justify-content: center;
+/* REVISED: Google Iframe Responsive Wrapper */
+.map-card-container { 
+    width: 100%;
+    min-height: 250px; 
+    height: 100%;
     border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
-.map-pin {
-    background: white; padding: 10px 18px; border-radius: 30px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600;
+.map-card-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
-.map-pin i { color: var(--earth-amber); }
 
 /* --- Section 7: Footer Architecture --- */
 footer { background-color: var(--dark-charcoal); color: #999; border-top: 1px solid #2c2e30; }
@@ -424,8 +486,14 @@ footer { background-color: var(--dark-charcoal); color: #999; border-top: 1px so
 @media (max-width: 992px) {
     .hero-container, .about-grid, .contact-block-grid { display: flex; flex-direction: column; }
     .hero-section { padding-right: 5%; }
+    
+    /* REVISED: Retain clip path reset but ensure carousel height behaves cleanly on smaller devices */
     .hero-image-wrapper { clip-path: none; height: 350px; }
+    
     .about-images { display: none; }
     .input-row { flex-direction: column; }
     .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    
+    /* ADDED: Forces maps layout container to claim strong baseline height on tablet/mobile views */
+    .map-card-container { min-height: 350px; }
 }

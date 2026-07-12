@@ -7,28 +7,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-</head>
+	<script src="script.js" defer></script>
+</head> 
 <body>
 
     <header class="navbar">
-        <div class="logo">
-            <i class="fa-solid fa-utensils"></i>
-            <div>
-                <strong>TASTESPOT KL</strong>
-                <span>DISCOVER. TASTE. ENJOY.</span>
-            </div>
+    <div class="logo">
+        <i class="fa-solid fa-utensils"></i>
+        <div>
+            <strong>TASTESPOT KL</strong>
+            <span>DISCOVER. TASTE. ENJOY.</span>
         </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#categories">Categories</a></li>
-                <li><a href="#featured">Featured</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="#contact" class="btn nav-btn">Explore Now</a>
-    </header>
+    </div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <nav>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#featured">Featured</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <a href="#contact" class="btn nav-btn">Explore Now</a>
+</header>
 
     <section id="home" class="hero-section">
         <div class="hero-container">
@@ -42,10 +48,14 @@
                 </div>
             </div>
             <div class="hero-right">
-                <div class="hero-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80" alt="KL Premium Dining Table">
-                </div>
-            </div>
+				<div class="hero-image-wrapper">
+					<div class="carousel-track" id="carousel-track">
+						<img src="images/hero.jpg" alt="KL Premium Dining Table 1">
+						<img src="images/[_original, _original]-7c97835b345839c658d5d2b7b4554bc6.jpg" alt="KL Premium Dining Table 2">
+						<img src="images/360_F_240991913_c22j6WvLgpqiUvjaLiLc5rh14WO8jShB.jpg" alt="KL Premium Dining Table 3">
+					</div>
+				</div>
+			</div>
         </div>
     </section>
 
@@ -53,13 +63,13 @@
         <div class="container about-grid">
             <div class="about-images">
                 <div class="img-back">
-                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=500&q=80" alt="Restaurant interior">
+                    <img src="images/Screenshot 2026-07-08 221310.jpg" alt="Restaurant interior">
+                </div>
+                <div class="img-middle">
+                    <img src="images/Picture-e1762664039149.jpg" alt="Coffee pouring">
                 </div>
                 <div class="img-front">
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=400&q=80" alt="Coffee pouring">
-                </div>
-                <div class="badge-card">
-                    <p>Curated <br>With <br><span class="serif-italic">Passion</span></p>
+                    <img src="images/copy_of_imgl0955.jpg" alt="Coffee pouring">
                 </div>
             </div>
             <div class="about-content">
@@ -116,33 +126,33 @@
             <div class="featured-grid">
                 <div class="featured-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Fuego">
+                        <img src="images/fuego-troika-sky-dining-600-1.jpg" alt="Fuego">
                         <span class="card-tag">Rooftop Dining</span>
                     </div>
                     <div class="card-info">
                         <h3>Fuego at Troika Sky Dining</h3>
-                        <p>Modern European • Rooftop • KLCC View</p>
+                        <p>Modern Latin American • Rooftop • KLCC View</p>
                         <a href="#" class="view-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="featured-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=600&q=80" alt="Beta KL">
+                        <img src="images/thirty8.jpg" alt="Beta KL">
                         <span class="card-tag">Fine Dining</span>
                     </div>
                     <div class="card-info">
-                        <h3>Beta KL</h3>
+                        <h3>Thirty8 Grand Hyatt</h3>
                         <p>Contemporary • Fine Dining • Elegant</p>
                         <a href="#" class="view-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="featured-card">
                     <div class="card-img-holder">
-                        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=600&q=80" alt="Feeka">
+                        <img src="images/Screenshot 2026-07-08 221856.jpg" alt="Feeka">
                         <span class="card-tag">Café</span>
                     </div>
                     <div class="card-info">
-                        <h3>Feeka Coffee Roasters</h3>
+                        <h3>Dona Bakehouse</h3>
                         <p>Specialty Coffee • Dessert • Cozy</p>
                         <a href="#" class="view-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
@@ -162,7 +172,7 @@
             <h2 class="section-title-centered">VIBRANT KL CULINARY SCENE</h2>
             <div class="divider"><span>♦</span></div>
             <div class="video-wrapper">
-                <iframe src="https://drive.google.com/file/d/17dHGJXojrRFcdPxLwGUy03XNN0usowGL/preview" 
+                <iframe src="https://drive.google.com/file/d/17dHGJXojrRFcdPxLwGUy03XNN0usowGL/preview?autoplay=1" 
                     title="Kuala Lumpur Food Scene Video" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -179,7 +189,7 @@
             <div class="why-grid">
                 <div class="why-item">
                     <div class="why-icon-circle"><i class="fa-regular fa-star"></i></div>
-                    <h3>Curated Recommendations</h3>
+                    <h3> Recommendations</h3>
                     <p>We handpick the best dining spots to ensure quality and great experiences.</p>
                 </div>
                 <div class="why-item">
@@ -202,40 +212,43 @@
     </section>
 
     <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title-centered">GET IN TOUCH</h2>
-            <div class="divider"><span>♦</span></div>
-            
-            <div class="contact-block-grid">
-                <form class="contact-form" action="#" method="POST">
-                    <div class="input-row">
-                        <div class="input-icon-group">
-                            <i class="fa-regular fa-user"></i>
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="input-icon-group">
-                            <i class="fa-regular fa-envelope"></i>
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                    </div>
-                    <div class="input-icon-group textarea-group">
-                        <i class="fa-regular fa-comment"></i>
-                        <textarea rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dark form-submit">Send Message</button>
-                </form>
-                
-                <div class="map-card-container">
-                    <div class="map-mock">
-                        <div class="map-pin">
-                            <i class="fa-solid fa-location-pin"></i>
-                            <span class="pin-label">Kuala Lumpur, Malaysia</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+		<div class="container">
+			<h2 class="section-title-centered">GET IN TOUCH</h2>
+			<div class="divider"><span>♦</span></div>
+			
+			<div class="contact-block-grid">
+				<form class="contact-form" action="#" method="POST">
+					<div class="input-row">
+						<div class="input-icon-group">
+							<i class="fa-regular fa-user"></i>
+							<input type="text" placeholder="Your Name" required>
+						</div>
+						<div class="input-icon-group">
+							<i class="fa-regular fa-envelope"></i>
+							<input type="email" placeholder="Your Email" required>
+						</div>
+					</div>
+					<div class="input-icon-group textarea-group">
+						<i class="fa-regular fa-comment"></i>
+						<textarea rows="5" placeholder="Your Message" required></textarea>
+					</div>
+					<button type="submit" class="btn btn-dark form-submit">Send Message</button>
+				</form>
+				
+				<div class="map-card-container">
+					<iframe 
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.8807090415812!2d101.71080338867522!3d3.157485099204476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37d12d669c1f%3A0xc955b08cfc1aae29!2sSuria%20KLCC!5e0!3m2!1sen!2smy!4v1783522417297!5m2!1sen!2smy"
+						width="100%" 
+						height="100%" 
+						style="border:0;" 
+						allowfullscreen="" 
+						loading="lazy" 
+						referrerpolicy="no-referrer-when-downgrade">
+					</iframe>
+				</div>
+			</div>
+		</div>
+	</section>
 
     <footer>
         <div class="container footer-grid">
@@ -270,6 +283,5 @@
             <p>&copy; 2026 TasteSpot KL. All Rights Reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>
